@@ -16,11 +16,10 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.5.33" level="application_server_libraries" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://D:/JavaLibrary/thumbnailator-0.4.6.jar!/" />
+          <root url="jar://$USER_HOME$/Codes_Library/thumbnailator-0.4.6.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

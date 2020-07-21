@@ -10,11 +10,15 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         //存储待修改文件的文件夹路径
-        String src_path="D:\\Program WorkSpace\\js_workspace\\Business-card-recognition\\unimg_test";
+        String src_path="/home/han/IdeaProjects/Business-card-recognition/unimg_test/";
         //存储缩放后的文件的文件夹路径
-        String scale_save="D:\\Program WorkSpace\\js_workspace\\Business-card-recognition\\scale\\";
+        String scale_save="/home/han/IdeaProjects/Business-card-recognition/scale/";
         //存储旋转后的文件的文件夹路径
-        String rotate_save="D:\\Program WorkSpace\\js_workspace\\Business-card-recognition\\rotate\\";
+        String rotate_save="/home/han/IdeaProjects/Business-card-recognition/rotate/";
+        //存储分割后的文件的文件夹路径
+        String sumfix_save="/home/han/IdeaProjects/Business-card-recognition/sumfix/";
+
+
         //用于存储待修改文件夹中的所有文件路径
         ArrayList<String> file_path=new ArrayList<>();
         //用于存储待修改文件夹中的所有图片名称，利用字符串截取子字符串的方法
@@ -27,13 +31,14 @@ public class Main {
         //通过文件路径提取所有图片名称
         for (int i=0;i<file_path.size();i++){
             //通过文件路径裁剪出图片名称
-            String substr=file_path.get(i).substring(71,75);
+            String substr=file_path.get(i).substring(60,64);
+            System.out.println(substr);
             img_name.add(substr);
         }
 
         //将图片全部缩放并存至 scale文件夹中
         for (int j=0;j<img_name.size();j++){
-            test.scalekpratio(src_path+"\\"+img_name.get(j)+".jpg",
+            test.scalekpratio(src_path+img_name.get(j)+".jpg",
                     scale_save,img_name.get(j));
         }
         System.out.println("图片已全部缩放完毕，存放至scale文件夹中");
@@ -47,7 +52,9 @@ public class Main {
 
         //将图片全部分割成四份，并存至sumfix文件夹中
         for (int j=0;j<img_name.size();j++){
-            scissors.scissors();
+            scissors.scissors(rotate_save+img_name.get(j)+".jpg",
+                    sumfix_save,
+                    img_name.get(j));
         }
 
     }
